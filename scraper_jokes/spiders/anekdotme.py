@@ -21,7 +21,7 @@ class AnekdotmeSpider(scrapy.Spider):
     def jokes_parse(self, response, **kwargs):
         for joke in response.xpath(self.xpath['joke']):
             loader = ScraperJokesLoader(response=response)
-            loader.add_value('theme', response.url.split('/')[-1].replace('anekdoti_',''))
+            loader.add_value('theme', response.url)
             loader.add_value('text', 
                              [sentence.get() for sentence in joke.xpath(self.xpath['joke_text'])])
             loader.add_value('rating', joke.xpath(self.xpath['joke_rating']).get())
