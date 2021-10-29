@@ -9,7 +9,7 @@ Base = declarative_base()
 
 
 class Joke(Base):
-    __tablename__ = 'post'
+    __tablename__ = 'joke'
     id = Column(Integer, autoincrement=True, primary_key=True)
     theme = Column(String, unique=False, nullable=False)
     text = Column(String, unique=False, nullable=False)
