@@ -17,10 +17,10 @@ class ScraperJokesPipeline:
     def __init__(self) -> None:
         self.engine = create_engine('sqlite:///jokes.db')
         models.Base.metadata.create_all(bind=self.engine)
-        self.SessionMaker = sessionmaker(bind=self.engine)
+        self.session = sessionmaker(bind=self.engine)
 
     def process_item(self, item, spider):
-        db = self.SessionMaker()
+        db = self.session()
 
         joke = models.Joke(
             theme=item['theme'],
