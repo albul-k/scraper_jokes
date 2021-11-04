@@ -12,17 +12,15 @@
 ### Example of fetching `jokes.db`
 
 ```python
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+import sqlite3 as sql
 
 
-engine = create_engine('sqlite:///jokes.db')
-session = sessionmaker(bind=engine)
+db_connect = sql.connect('jokes.db')
+cur = db_connect.execute('SELECT * FROM joke')
+rows = cur.fetchall()
+cur.close()
 
-sql_query = 'SELECT * FROM joke'
-rs = session().execute(sql_query)
-
-for record in rs.fetchall():
+for row in rows:
     # your code
     pass
 ```
