@@ -24,3 +24,7 @@ for row in rows:
     # your code
     pass
 ```
+
+## Sources
+
+* [anekdotme.ru](http://anekdotme.ru/)
