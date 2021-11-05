@@ -1,6 +1,5 @@
 from scrapy.crawler import CrawlerProcess
 from scrapy.settings import Settings
-
 from scraper_jokes import settings
 from scraper_jokes.spiders.anekdotme import AnekdotmeSpider
 
